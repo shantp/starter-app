@@ -1,3 +1,3 @@
 # starter-app
 
-Base app for react + es6 + babel + webpack
+Starter app for react + es6 + babel + webpack based on essential-react
