@@ -3,7 +3,7 @@ import React from 'react';
 
 const DOM_APP_ID = 'app';
 
-class TwitchEmoticons extends React.Component {
+class App extends React.Component {
   render() {
     return (
       <div />
@@ -11,4 +11,4 @@ class TwitchEmoticons extends React.Component {
   }
 }
 
-React.render(<TwitchEmoticons />, document.getElementById(DOM_APP_ID));
+React.render(<App />, document.getElementById(DOM_APP_ID));
