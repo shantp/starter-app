@@ -1,23 +1,7 @@
 {
-  "parser": "babel-eslint",
-
-  "env": {
-    "browser": true,
-    "node": true
-  },
-
-  "ecmaFeatures": {
-    "jsx": true,
-    "arrowFunctions": true,
-    "templateStrings": true,
-    "blockBindings": true
-  },
+  "extends": "airbnb",
 
   "rules": {
-    "quotes": [2, "single"],
-    "eol-last": [0],
-    "no-mixed-requires": [0],
-    "no-underscore-dangle": [0],
-    "brace-style": [2, "stroustrup"]
+    "no-trailing-spaces": [2, { "skipBlankLines": true }]
   }
 }
