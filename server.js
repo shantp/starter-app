@@ -1,11 +1,11 @@
-var express = require('express');
-var app = express();
+const express = require('express');
+const app = express();
 
-var webpack = require('webpack');
-var WebpackDevServer = require('webpack-dev-server');
-var config = require('./webpack.local.config');
+const webpack = require('webpack');
+const WebpackDevServer = require('webpack-dev-server');
+const config = require('./webpack.local.config');
 
-app.get('*', function(req, res) {
+app.get('*', (req, res) => {
   res.sendFile(__dirname + '/build/index.html');
 });
 
@@ -13,12 +13,14 @@ new WebpackDevServer(webpack(config), {
   publicPath: config.output.publicPath,
   hot: true,
   noInfo: true,
-  historyApiFallback: true
-}).listen(9090, 'localhost', function (err, result) {
-  if (err) console.log(err);
+  historyApiFallback: true,
+}).listen(9090, 'localhost', (err, result) => {
+  if (err) {
+    console.log(err, result);
+  }
 });
 
-var server = app.listen(8080, function () {
-  var port = server.address().port;
+const server = app.listen(8080, () => {
+  const port = server.address().port;
   console.log('listening @ %s', port);
 });
