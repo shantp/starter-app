@@ -18,7 +18,7 @@ new WebpackDevServer(webpack(config), {
   if (err) console.log(err);
 });
 
-var server = app.listen(8080, function () {
+var server = app.listen(4099, function () {
   var port = server.address().port;
   console.log('listening @ %s', port);
 });
