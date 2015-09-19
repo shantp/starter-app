@@ -1,1 +1,2 @@
-export const TOGGLE = 'TOGGLE';
+export const NEW_TAB = 'NEW_TAB';
+export const UPDATE_TAB = 'UPDATE_TAB';

@@ -1,11 +1,11 @@
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import Toggle from './components/Toggle';
-import * as ActionCreators from './actions/toggle';
+import Tabs from './components/Tabs';
+import * as ActionCreators from './actions/tabs';
 
 function mapStateToProps(state) {
   return {
-    active: state.toggle,
+    tabs: state.tabs,
   };
 }
 
@@ -16,4 +16,4 @@ function mapDispatchToProps(dispatch) {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Toggle);
+)(Tabs);

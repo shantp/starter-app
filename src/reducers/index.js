@@ -2,10 +2,10 @@
  * Reducers
  */
 import {combineReducers} from 'redux';
-import {toggle} from './toggle';
+import {tabs} from './tabs';
 
 const rootReducer = combineReducers({
-  toggle,
+  tabs,
 });
 
 export default rootReducer;
