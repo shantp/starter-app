@@ -49,14 +49,22 @@ class Tabs extends React.Component {
       );
     });
 
+    const buttonStyle = {
+      height: 50,
+      fontSize: 16,
+      marginRight: 8,
+    };
+
     return (
       <div>
         <button
+          style={buttonStyle}
           onClick={this.addNewTab}>
           New Tab
         </button>
         <button
           disabled={this.props.tabs.length === 0}
+          style={buttonStyle}
           onClick={this.updateRandomTab}>
           Update Random Tab
         </button>
