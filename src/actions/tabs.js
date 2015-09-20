@@ -1,16 +1,16 @@
 import {NEW_TAB, UPDATE_TAB} from './actionTypes';
 
-export function newTab(url) {
+export function newTab(tab) {
   return {
     type: NEW_TAB,
-    url,
+    tab,
   };
 }
 
-export function updateTab(id, url) {
+export function updateTab(id, tab) {
   return {
     type: UPDATE_TAB,
     id,
-    url,
+    tab,
   };
 }

@@ -1,19 +1,19 @@
 import React, {PropTypes} from 'react';
 
 const randomUrls = [
-  'http://google.com',
-  'http://facebook.com',
-  'http://youtube.com',
-  'http://twitter.com',
-  'http://wikipedia.org',
-  'http://instagram.com',
-  'http://yahoo.com',
-  'http://espn.com',
+  {url: 'google.com', color: 'green'},
+  {url: 'facebook.com', color: 'blue'},
+  {url: 'youtube.com', color: 'maroon'},
+  {url: 'twitter.com', color: 'powderblue'},
+  {url: 'wikipedia.org', color: 'grey'},
+  {url: 'instagram.com', color: 'orange'},
+  {url: 'yahoo.com', color: 'purple'},
+  {url: 'espn.com', color: 'red'},
 ];
 
 class Tabs extends React.Component {
-  constructor(...args) {
-    super(...args);
+  constructor(props, context) {
+    super(props, context);
     this.addNewTab = this.addNewTab.bind(this);
     this.updateRandomTab = this.updateRandomTab.bind(this);
   }
@@ -24,19 +24,28 @@ class Tabs extends React.Component {
 
   addNewTab() {
     const url = this.getRandomUrl();
-    this.props.newTab(url);
+    this.props.actions.newTab(url);
   }
 
   updateRandomTab() {
     const url = this.getRandomUrl();
     const id = Math.floor(Math.random() * this.props.tabs.length);
-    this.props.updateTab(id, url);
+    this.props.actions.updateTab(id, url);
   }
 
   render() {
     const tabs = this.props.tabs.map((tab, i) => {
       return (
-        <li key={i}>{tab}</li>
+        <li
+          key={i}
+          style={{
+            backgroundColor: tab.color,
+            padding: 33,
+            height: 20,
+            fontSize: 24,
+          }}>
+          {tab.url}
+        </li>
       );
     });
 
@@ -49,7 +58,7 @@ class Tabs extends React.Component {
         <button
           disabled={this.props.tabs.length === 0}
           onClick={this.updateRandomTab}>
-          Update Tab
+          Update Random Tab
         </button>
         <ol>
           {tabs}
@@ -60,8 +69,7 @@ class Tabs extends React.Component {
 }
 
 Tabs.propTypes = {
-  newTab: PropTypes.func.isRequired,
-  updateTab: PropTypes.func.isRequired,
+  actions: PropTypes.object.isRequired,
   tabs: PropTypes.array.isRequired,
 };
 

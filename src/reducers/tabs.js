@@ -5,11 +5,12 @@ const initialState = [];
 export function tabs(state = initialState, action) {
   switch (action.type) {
   case NEW_TAB:
-    state.push(action.url);
-    return state;
+    return [...state, action.tab];
   case UPDATE_TAB:
-    state[action.id] = action.url;
-    return state;
+    state[action.id] = action.tab;
+    const newState = [...state];
+    newState[action.id] = action.tab;
+    return newState;
   default:
     return state;
   }
