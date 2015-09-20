@@ -1,3 +1,7 @@
 # starter-app
 
-Starter app for React + babel + redux + webpack
+Starter app for React
+* webpack
+* babel
+* redux
+* react-transform
