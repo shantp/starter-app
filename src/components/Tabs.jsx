@@ -60,7 +60,7 @@ class Tabs extends React.Component {
         <button
           style={buttonStyle}
           onClick={this.addNewTab}>
-          New Tab
+          Open New Tab
         </button>
         <button
           disabled={this.props.tabs.length === 0}
