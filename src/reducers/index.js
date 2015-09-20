@@ -5,7 +5,7 @@ import {combineReducers} from 'redux';
 import {tabs} from './tabs';
 
 const rootReducer = combineReducers({
-  tabs,
+  tabs
 });
 
 export default rootReducer;

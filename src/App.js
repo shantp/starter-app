@@ -21,12 +21,12 @@ class App extends React.Component {
 
 App.propTypes = {
   tabs: PropTypes.array.isRequired,
-  dispatch: PropTypes.func.isRequired,
+  dispatch: PropTypes.func.isRequired
 };
 
 function mapStateToProps(state) {
   return {
-    tabs: state.tabs,
+    tabs: state.tabs
   };
 }
 

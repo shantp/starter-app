@@ -11,7 +11,7 @@ const randomUrls = [
   {url: 'instagram.com', color: 'tan'},
   {url: 'yahoo.com', color: 'purple'},
   {url: 'espn.com', color: 'red'},
-  {url: 'homedepot.com', color: 'orange'},
+  {url: 'homedepot.com', color: 'orange'}
 ];
 
 class Tabs extends React.Component {
@@ -19,10 +19,6 @@ class Tabs extends React.Component {
     super(props, context);
     this.addNewTab = this.addNewTab.bind(this);
     this.updateRandomTab = this.updateRandomTab.bind(this);
-  }
-
-  getRandomUrl() {
-    return randomUrls[Math.floor(Math.random() * randomUrls.length)];
   }
 
   addNewTab() {
@@ -34,6 +30,10 @@ class Tabs extends React.Component {
     const url = this.getRandomUrl();
     const id = Math.floor(Math.random() * this.props.tabs.length);
     this.props.actions.updateTab(id, url);
+  }
+
+  getRandomUrl() {
+    return randomUrls[Math.floor(Math.random() * randomUrls.length)];
   }
 
   render() {
@@ -68,7 +68,7 @@ class Tabs extends React.Component {
 
 Tabs.propTypes = {
   actions: PropTypes.object.isRequired,
-  tabs: PropTypes.array.isRequired,
+  tabs: PropTypes.array.isRequired
 };
 
 export default Tabs;
