@@ -1,14 +1,17 @@
 import React, {PropTypes} from 'react';
 
+import './tabs.scss';
+
 const randomUrls = [
   {url: 'google.com', color: 'green'},
   {url: 'facebook.com', color: 'blue'},
   {url: 'youtube.com', color: 'maroon'},
-  {url: 'twitter.com', color: 'powderblue'},
-  {url: 'wikipedia.org', color: 'grey'},
-  {url: 'instagram.com', color: 'orange'},
+  {url: 'twitter.com', color: 'lightblue'},
+  {url: 'wikipedia.org', color: 'lightgrey'},
+  {url: 'instagram.com', color: 'tan'},
   {url: 'yahoo.com', color: 'purple'},
   {url: 'espn.com', color: 'red'},
+  {url: 'homedepot.com', color: 'orange'},
 ];
 
 class Tabs extends React.Component {
@@ -38,33 +41,20 @@ class Tabs extends React.Component {
       return (
         <li
           key={i}
-          style={{
-            backgroundColor: tab.color,
-            padding: 33,
-            height: 20,
-            fontSize: 24,
-          }}>
-          {tab.url}
+          style={{backgroundColor: tab.color}}>
+          <span>{tab.url}</span>
         </li>
       );
     });
 
-    const buttonStyle = {
-      height: 50,
-      fontSize: 16,
-      marginRight: 8,
-    };
-
     return (
       <div>
         <button
-          style={buttonStyle}
           onClick={this.addNewTab}>
           Open New Tab
         </button>
         <button
           disabled={this.props.tabs.length === 0}
-          style={buttonStyle}
           onClick={this.updateRandomTab}>
           Update Random Tab
         </button>
