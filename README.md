@@ -7,7 +7,5 @@ Starter app for React
 * react-transform
 
 ```
-git clone https://github.com/shantp/starter-app.git
-npm install
 npm start
 ```
