@@ -37,6 +37,7 @@ class Tabs extends React.Component {
   }
 
   render() {
+    console.log(this.props.tabs);
     const tabs = this.props.tabs.map((tab, i) => {
       return (
         <li

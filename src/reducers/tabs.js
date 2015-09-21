@@ -7,9 +7,9 @@ export function tabs(state = initialState, action) {
     case NEW_TAB:
       return [...state, action.tab];
     case UPDATE_TAB:
-      const newState = [...state];
-      newState[action.id] = action.tab;
-      return newState;
+      return state.map((t, i) => {
+        return i === action.id ? action.tab : t;
+      });
     default:
       return state;
   }

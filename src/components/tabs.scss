@@ -4,33 +4,19 @@ button {
   margin-right: 8px;
 }
 
-ol {
-  list-style: none;
-}
-
 li {
   counter-increment: item;
   margin: 12px 0;
   padding: 34px;
   height: 20px;
   font-size: 21px;
-  border-radius: 8px;
+  border: 1px solid #777;
+  border-top: 0;
+  border-left: 0;
 
   span {
     margin: 0 24px;
     padding: 10px;
     background-color: white;
-    border: 1px solid #333;
-    border-top: 0;
-    border-left: 0;
-  }
-
-  &:before {
-    content: counter(item);
-    display: inline-block;
-    width: 30px;
-    text-align: center;
-    background-color: white;
-    border-radius: 100%;
   }
 }
