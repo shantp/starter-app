@@ -1,15 +1,14 @@
 import {NEW_TAB, UPDATE_TAB} from '../actions/actionTypes';
+import Immutable from 'immutable';
 
-const initialState = [];
+const initialState = Immutable.List([]);
 
 export function tabs(state = initialState, action) {
   switch (action.type) {
     case NEW_TAB:
-      return [...state, action.tab];
+      return state.push(action.tab);
     case UPDATE_TAB:
-      return state.map((t, i) => {
-        return i === action.id ? action.tab : t;
-      });
+      return state.set(action.id, action.tab);
     default:
       return state;
   }

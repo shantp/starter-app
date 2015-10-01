@@ -20,7 +20,7 @@ class App extends React.Component {
 }
 
 App.propTypes = {
-  tabs: PropTypes.array.isRequired,
+  tabs: PropTypes.object.isRequired,
   dispatch: PropTypes.func.isRequired
 };
 

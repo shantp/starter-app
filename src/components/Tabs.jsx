@@ -28,7 +28,7 @@ class Tabs extends React.Component {
 
   updateRandomTab() {
     const url = this.getRandomUrl();
-    const id = Math.floor(Math.random() * this.props.tabs.length);
+    const id = Math.floor(Math.random() * this.props.tabs.size);
     this.props.actions.updateTab(id, url);
   }
 
@@ -54,7 +54,7 @@ class Tabs extends React.Component {
           Open New Tab
         </button>
         <button
-          disabled={this.props.tabs.length === 0}
+          disabled={this.props.tabs.size === 0}
           onClick={this.updateRandomTab}>
           Update Random Tab
         </button>
@@ -68,7 +68,7 @@ class Tabs extends React.Component {
 
 Tabs.propTypes = {
   actions: PropTypes.object.isRequired,
-  tabs: PropTypes.array.isRequired
+  tabs: PropTypes.object.isRequired
 };
 
 export default Tabs;
