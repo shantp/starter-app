@@ -1,16 +1,16 @@
-button {
+.button {
   height: 50px;
   font-size: 16px;
   margin-right: 8px;
 }
 
-li {
+.listItem {
   counter-increment: item;
   margin: 12px 0;
   padding: 34px;
   height: 20px;
   font-size: 21px;
-  border: 1px solid #777;
+  border: 1px solid #777777;
   border-top: 0;
   border-left: 0;
 

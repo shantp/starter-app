@@ -21,19 +21,19 @@ module.exports = {
   ],
 
   resolve: {
-    extensions: ['', '.jsx', '.js', '.json']
+    extensions: ['', '.js', '.jsx']
   },
 
   module: {
     loaders: [
       {
         test: /\.jsx?$/,
-        loaders: ['babel'],
+        loader: 'babel',
         include: path.join(__dirname, 'src'),
       },
       {
         test: /\.scss$/,
-        loader: 'style!css!sass',
+        loader: 'style!css?modules!sass',
       }
     ]
   }

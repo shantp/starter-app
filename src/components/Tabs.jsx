@@ -1,6 +1,6 @@
 import React, {PropTypes} from 'react';
 
-import './tabs.scss';
+import style from './tabs.scss';
 
 const randomUrls = [
   {url: 'google.com', color: 'green'},
@@ -40,6 +40,7 @@ class Tabs extends React.Component {
     const tabs = this.props.tabs.map((tab, i) => {
       return (
         <li
+          className={style.listItem}
           key={i}
           style={{backgroundColor: tab.color}}>
           <span>{tab.url}</span>
@@ -50,10 +51,12 @@ class Tabs extends React.Component {
     return (
       <div>
         <button
+          className={style.button}
           onClick={this.addNewTab}>
           Open New Tab
         </button>
         <button
+          className={style.button}
           disabled={this.props.tabs.size === 0}
           onClick={this.updateRandomTab}>
           Update Random Tab
