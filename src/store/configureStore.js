@@ -1,8 +1,10 @@
-import {compose, createStore, applyMiddleware} from 'redux';
+import {compose, createStore} from 'redux';
 import rootReducer from '../reducers';
 import DevTools from '../components/DevTools';
+import trackState from '../trackState';
 
 const enhancer = compose(
+  trackState(),
   DevTools.instrument()
 );
 
