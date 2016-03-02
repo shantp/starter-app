@@ -1,15 +1,19 @@
-import {compose, createStore} from 'redux';
+import {compose, createStore, applyMiddleware} from 'redux';
+import thunk from 'redux-thunk';
 import rootReducer from '../reducers';
 import DevTools from '../components/DevTools';
 import trackState from '../trackState';
 
-const enhancer = compose(
-  trackState(),
-  DevTools.instrument()
-);
+const createComposedStore = compose(
+  applyMiddleware(thunk),
+  DevTools.instrument(),
+  trackState()
+)(createStore);
+
+
 
 export default function configureStore(initialState) {
-  const store = createStore(rootReducer, initialState, enhancer);
+  const store = createComposedStore(rootReducer, initialState);
 
   if (module.hot) {
     module.hot.accept('../reducers', () => {

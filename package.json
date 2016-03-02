@@ -20,13 +20,14 @@
     "babel-preset-stage-0": "^6.5.0",
     "css-loader": "^0.23.1",
     "express": "^4.13.4",
-    "immutable": "^3.7.5",
+    "firebase": "^2.4.1",
     "json-loader": "^0.5.4",
     "node-sass": "^3.3.3",
     "redux-devtools": "^3.1.1",
     "redux-devtools-dock-monitor": "^1.1.0",
     "redux-devtools-log-monitor": "^1.0.4",
     "redux-slider-monitor": "^1.0.2",
+    "redux-thunk": "^1.0.3",
     "rethinkdb": "^2.2.2",
     "sass-loader": "^3.1.2",
     "style-loader": "^0.13.0",
@@ -35,6 +36,7 @@
     "webpack-hot-middleware": "^2.7.1"
   },
   "dependencies": {
+    "bluebird": "^3.3.3",
     "react": "^0.14.7",
     "react-dom": "^0.14.7",
     "react-redux": "^4.4.0",

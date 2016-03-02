@@ -23,13 +23,13 @@ class Tabs extends React.Component {
 
   addNewTab() {
     const url = this.getRandomUrl();
-    this.props.actions.newTab(url);
+    this.props.newTab(url);
   }
 
   updateRandomTab() {
     const url = this.getRandomUrl();
     const id = Math.floor(Math.random() * this.props.tabs.size);
-    this.props.actions.updateTab(id, url);
+    this.props.updateTab(id, url);
   }
 
   getRandomUrl() {
@@ -70,8 +70,9 @@ class Tabs extends React.Component {
 }
 
 Tabs.propTypes = {
-  actions: PropTypes.object.isRequired,
-  tabs: PropTypes.object.isRequired
+  tabs: PropTypes.array.isRequired,
+  newTab: PropTypes.func.isRequired,
+  updateTab: PropTypes.func.isRequired
 };
 
 export default Tabs;

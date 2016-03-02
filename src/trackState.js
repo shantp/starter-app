@@ -1,44 +1,25 @@
-// import r from 'rethinkdb';
+import Firebase from 'firebase';
 import packageJson from '../package.json';
+import {mapValues, identity} from 'lodash';
+import {REJUICE} from './actions/actionTypes';
 
-// const dbConfig = {
-//   host: 'localhost',
-//   port: 28015,
-//   db: 'test'
-// }
+const fire = new Firebase('https://torid-fire-2143.firebaseio.com/');
 
 export default function trackState() {
-  // function deserialize(state) {
-  //   return {
-  //     ...state
-  //   };
-  // }
-
   return next => (reducer, initialState, enhancer) => {
-    const store = next(reducer, initialState, enhancer);
+
+    const rejuiceReducer = rejuice(reducer);
+    const store = next(rejuiceReducer, initialState, enhancer);
 
     return {
       ...store,
       dispatch(action) {
         store.dispatch(action);
-        const index = store.liftedStore.getState().currentStateIndex;
-        const key = `${packageJson.version}_${'shant'}_${index}`;
-
+        const key = 'shant';
         const state = JSON.stringify(store.getState());
 
         try {
-          localStorage.setItem(key, state);
-
-          // r.connect(dbConfig)
-          // .then(conn => {
-          //   return r
-          //   .table('admin_state')
-          //   .insert(state)
-          //   .run(conn)
-          //   .then(reponse => {
-          //     console.log(response);
-          //   })
-          // });
+          fire.set({[key]: state});
         } catch (err) {
           console.warn('Error persisting state: ', err);
         }
@@ -46,5 +27,34 @@ export default function trackState() {
         return action;
       }
     };
+  }
+
+  function deserialize(state) {
+    return {
+      ...state,
+      actionsById: mapValues(state.actionsById, liftedAction => ({
+        ...liftedAction,
+        action: identity(liftedAction.action)
+      })),
+      committedState: identity(state.committedState),
+      computedStates: state.computedStates.map(computedState => ({
+        ...computedState,
+        state: identity(computedState.state)
+      }))
+    };
+  }
+
+  function rejuice(reducer) {
+    return (state, action) => {
+      if (action.action) {
+        action = action.action;
+      }
+      if (action.type !== REJUICE) {
+        console.log(reducer(state, action));
+        return reducer(state, action);
+      } else {
+        return deserialize(JSON.parse(action.payload));
+      }
+    }
   }
 }
