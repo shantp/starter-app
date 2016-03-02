@@ -7,7 +7,6 @@ const fire = new Firebase('https://torid-fire-2143.firebaseio.com/');
 
 export default function trackState() {
   return next => (reducer, initialState, enhancer) => {
-
     const rejuiceReducer = rejuice(reducer);
     const store = next(rejuiceReducer, initialState, enhancer);
 
@@ -46,14 +45,11 @@ export default function trackState() {
 
   function rejuice(reducer) {
     return (state, action) => {
-      if (action.action) {
-        action = action.action;
-      }
-      if (action.type !== REJUICE) {
-        console.log(reducer(state, action));
+      let innerAction = action.action;
+      if (!innerAction || innerAction.type !== REJUICE) {
         return reducer(state, action);
       } else {
-        return deserialize(JSON.parse(action.payload));
+        return deserialize(JSON.parse(innerAction.payload));
       }
     }
   }

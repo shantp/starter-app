@@ -13,7 +13,6 @@ function rejuice(payload) {
 export function getInitialState(admin, session) {
   return (dispatch, getState) => {
     return fire.once('value', (data) => {
-      console.log(data.val());
       dispatch(rejuice(data.val().shant));
     });
   };

@@ -5,6 +5,7 @@ const initialState = [];
 export function tabs(state = initialState, action) {
   switch (action.type) {
     case NEW_TAB:
+      console.log(action);
       return [...state, action.tab];
     case UPDATE_TAB:
       return state.map((item, i) => {
