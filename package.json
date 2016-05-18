@@ -20,7 +20,6 @@
     "babel-preset-stage-0": "^6.5.0",
     "css-loader": "^0.23.1",
     "express": "^4.13.4",
-    "immutable": "^3.7.5",
     "node-sass": "^3.3.3",
     "redux-devtools": "^3.1.1",
     "redux-devtools-dock-monitor": "^1.1.0",
@@ -33,9 +32,11 @@
     "webpack-hot-middleware": "^2.7.1"
   },
   "dependencies": {
+    "lodash": "^4.6.1",
     "react": "^0.14.7",
     "react-dom": "^0.14.7",
     "react-redux": "^4.4.0",
-    "redux": "^3.3.1"
+    "redux": "^3.3.1",
+    "victory": "^0.5.1"
   }
 }
